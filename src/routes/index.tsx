@@ -177,7 +177,7 @@ function Index() {
         </aside>
 
         {/* RIGHT — content */}
-        <section key={activeId} className="px-8 py-12 lg:px-16 lg:py-20 animate-in fade-in duration-500">
+        <section key={activeId} className="glass rounded-3xl px-8 py-12 lg:px-16 lg:py-20 animate-in fade-in duration-500 overflow-hidden">
           {isAbout ? (
             <div className="max-w-3xl">
               <div className="font-retro flex items-center gap-3 text-[8px] tracking-[0.25em] text-muted-foreground mb-10">
