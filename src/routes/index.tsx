@@ -102,50 +102,36 @@ function Index() {
       <div className="mx-auto grid min-h-screen max-w-[1400px] grid-cols-1 lg:grid-cols-[minmax(280px,360px)_1fr]">
         {/* LEFT — index */}
         <aside className="border-b border-border lg:border-b-0 lg:border-r lg:sticky lg:top-0 lg:h-screen flex flex-col">
-          <header className="px-8 pt-10 pb-8">
-            <p className="font-retro text-[11px] tracking-[0.2em] text-muted-foreground mb-5">
-              Nine Four Visuals
+          <header className="px-8 pt-12 pb-10">
+            <p className="font-retro text-[8px] tracking-[0.25em] text-muted-foreground mb-5">
+              NINE FOUR VISUALS
             </p>
-            <h1 className="font-retro text-2xl leading-tight">
-              Muhammad Ismail Nasir
+            <h1 className="font-retro text-[13px] leading-[1.6]">
+              MUHAMMAD<br />ISMAIL NASIR
             </h1>
-            <p className="font-retro mt-3 text-[11px] tracking-[0.18em] text-muted-foreground">
-              Filmmaker · Islamabad, Pakistan
+            <p className="font-retro mt-5 text-[8px] tracking-[0.25em] text-muted-foreground">
+              ISLAMABAD · PK
             </p>
           </header>
 
-          <nav className="flex-1 overflow-y-auto">
-            <p className="font-retro px-8 text-[10px] tracking-[0.25em] text-muted-foreground mb-3">
-              Works
+          <nav className="flex-1 overflow-y-auto px-8">
+            <p className="font-retro text-[8px] tracking-[0.25em] text-muted-foreground mb-6">
+              WORKS
             </p>
-            <ul>
-              {projects.map((p, i) => {
+            <ul className="space-y-4">
+              {projects.map((p) => {
                 const isActive = p.id === activeId;
                 return (
                   <li key={p.id}>
                     <button
                       onClick={() => setActiveId(p.id)}
-                      className={`group w-full text-left px-8 py-4 border-t border-border flex items-baseline gap-4 transition-colors ${
-                        isActive ? "bg-foreground text-background" : "hover:bg-muted"
+                      className={`font-retro text-left text-[11px] leading-relaxed transition-colors ${
+                        isActive
+                          ? "text-foreground"
+                          : "text-muted-foreground hover:text-foreground"
                       }`}
                     >
-                      <span
-                        className={`font-retro text-[11px] tabular-nums ${
-                          isActive ? "text-background/60" : "text-muted-foreground"
-                        }`}
-                      >
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="font-retro flex-1 text-lg leading-tight">
-                        {p.title}
-                      </span>
-                      <span
-                        className={`text-xs transition-transform ${
-                          isActive ? "translate-x-0" : "-translate-x-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0"
-                        }`}
-                      >
-                        →
-                      </span>
+                      {p.title.toUpperCase()}
                     </button>
                   </li>
                 );
@@ -153,9 +139,9 @@ function Index() {
             </ul>
           </nav>
 
-          <footer className="font-retro px-8 py-6 border-t border-border text-[11px] tracking-[0.15em] text-muted-foreground flex justify-between">
+          <footer className="font-retro px-8 py-8 text-[8px] tracking-[0.25em] text-muted-foreground flex justify-between">
             <a href="mailto:hello@ninefourvisuals.com" className="hover:text-foreground transition-colors">
-              hello@ninefourvisuals.com
+              EMAIL
             </a>
             <span>© 2024</span>
           </footer>
