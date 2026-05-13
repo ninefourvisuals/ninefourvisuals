@@ -102,15 +102,15 @@ function Index() {
       <div className="mx-auto grid min-h-screen max-w-[1400px] grid-cols-1 lg:grid-cols-[minmax(280px,360px)_1fr]">
         {/* LEFT — index */}
         <aside className="border-b border-border lg:border-b-0 lg:border-r lg:sticky lg:top-0 lg:h-screen flex flex-col">
-          <header className="px-8 pt-10 pb-8">
-            <p className="font-retro text-[11px] tracking-[0.2em] text-muted-foreground mb-5">
-              Nine Four Visuals
+          <header className="px-8 pt-12 pb-10">
+            <p className="font-retro text-[8px] tracking-[0.25em] text-muted-foreground mb-5">
+              NINE FOUR VISUALS
             </p>
-            <h1 className="font-retro text-2xl leading-tight">
-              Muhammad Ismail Nasir
+            <h1 className="font-retro text-[13px] leading-[1.6]">
+              MUHAMMAD<br />ISMAIL NASIR
             </h1>
-            <p className="font-retro mt-3 text-[11px] tracking-[0.18em] text-muted-foreground">
-              Filmmaker · Islamabad, Pakistan
+            <p className="font-retro mt-5 text-[8px] tracking-[0.25em] text-muted-foreground">
+              ISLAMABAD · PK
             </p>
           </header>
 
