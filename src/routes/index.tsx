@@ -5,6 +5,7 @@ import p2 from "@/assets/project-2.jpg";
 import p3 from "@/assets/project-3.jpg";
 import p4 from "@/assets/project-4.jpg";
 import p5 from "@/assets/project-5.jpg";
+import logo from "@/assets/logo-94.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -103,9 +104,11 @@ function Index() {
         {/* LEFT — index */}
         <aside className="border-b border-border lg:border-b-0 lg:border-r lg:sticky lg:top-0 lg:h-screen flex flex-col">
           <header className="px-8 pt-12 pb-10">
-            <p className="font-retro text-[8px] tracking-[0.25em] text-muted-foreground mb-5">
-              NINE FOUR VISUALS
-            </p>
+            <img
+              src={logo}
+              alt="Nine Four Visuals"
+              className="w-20 h-auto mb-6"
+            />
             <h1 className="font-retro text-[13px] leading-[1.6]">
               MUHAMMAD<br />ISMAIL NASIR
             </h1>
