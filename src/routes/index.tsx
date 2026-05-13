@@ -117,7 +117,14 @@ function Index() {
             </p>
           </header>
 
-          <nav className="flex-1 overflow-y-auto px-8">
+          <nav className="flex-1 overflow-y-auto px-8 pb-8">
+            <p className="font-retro text-[8px] tracking-[0.25em] text-muted-foreground mb-4">
+              ABOUT
+            </p>
+            <p className="font-pixel text-[15px] leading-[1.45] text-foreground/80 mb-10">
+              Award nominated cinematic filmmaker with 4+ years of experience in high energy event coverage, automotive filmmaking, and branded content production. Twice nominated at the International Motor Film Awards (London). Experienced in fast-paced live environments, action cinematography, crew coordination, and Assistant Director level production support.
+            </p>
+
             <p className="font-retro text-[8px] tracking-[0.25em] text-muted-foreground mb-6">
               WORKS
             </p>
@@ -142,11 +149,16 @@ function Index() {
             </ul>
           </nav>
 
-          <footer className="font-retro px-8 py-8 text-[8px] tracking-[0.25em] text-muted-foreground flex justify-between">
-            <a href="mailto:hello@ninefourvisuals.com" className="hover:text-foreground transition-colors">
-              EMAIL
-            </a>
-            <span>© 2024</span>
+          <footer className="font-retro px-8 py-8 text-[8px] tracking-[0.25em] text-muted-foreground border-t border-border">
+            <div className="flex flex-wrap gap-x-5 gap-y-3 mb-5">
+              <a href="https://www.youtube.com/@ninefourvisuals/videos" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">YOUTUBE</a>
+              <a href="https://www.instagram.com/ninefourvisuals/" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">INSTAGRAM</a>
+              <a href="https://www.linkedin.com/in/muhammad-ismail-nasir-3103761b3/" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">LINKEDIN</a>
+            </div>
+            <div className="flex justify-between">
+              <a href="mailto:hello@ninefourvisuals.com" className="hover:text-foreground transition-colors">EMAIL</a>
+              <span>© 2024</span>
+            </div>
           </footer>
         </aside>
 
