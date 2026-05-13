@@ -9,10 +9,10 @@ import p5 from "@/assets/project-5.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aria Vance — Filmmaker" },
-      { name: "description", content: "Selected films, documentaries, and commercials by filmmaker Aria Vance." },
-      { property: "og:title", content: "Aria Vance — Filmmaker" },
-      { property: "og:description", content: "Selected works by filmmaker Aria Vance." },
+      { title: "Muhammad Ismail Nasir — Nine Four Visuals" },
+      { name: "description", content: "Selected films, documentaries, and commercials by filmmaker Muhammad Ismail Nasir, founder of Nine Four Visuals. Based in Islamabad, Pakistan." },
+      { property: "og:title", content: "Muhammad Ismail Nasir — Nine Four Visuals" },
+      { property: "og:description", content: "Selected works by filmmaker Muhammad Ismail Nasir." },
     ],
   }),
   component: Index,
@@ -103,21 +103,20 @@ function Index() {
         {/* LEFT — index */}
         <aside className="border-b border-border lg:border-b-0 lg:border-r lg:sticky lg:top-0 lg:h-screen flex flex-col">
           <header className="px-8 pt-10 pb-8">
-            <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-6">
-              Filmmaker · Est. 2014
+            <p className="font-retro text-[11px] tracking-[0.2em] text-muted-foreground mb-5">
+              Nine Four Visuals
             </p>
-            <h1 className="font-serif text-4xl leading-none">
-              Aria <em className="italic">Vance</em>
+            <h1 className="font-retro text-2xl leading-tight">
+              Muhammad Ismail Nasir
             </h1>
-            <p className="mt-4 text-sm text-muted-foreground max-w-[28ch] leading-relaxed">
-              Director and cinematographer working between narrative film and documentary. Based in
-              Brooklyn.
+            <p className="font-retro mt-3 text-[11px] tracking-[0.18em] text-muted-foreground">
+              Filmmaker · Islamabad, Pakistan
             </p>
           </header>
 
           <nav className="flex-1 overflow-y-auto">
-            <p className="px-8 text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-3">
-              Selected Works
+            <p className="font-retro px-8 text-[10px] tracking-[0.25em] text-muted-foreground mb-3">
+              Works
             </p>
             <ul>
               {projects.map((p, i) => {
@@ -131,21 +130,14 @@ function Index() {
                       }`}
                     >
                       <span
-                        className={`text-[10px] tabular-nums ${
+                        className={`font-retro text-[11px] tabular-nums ${
                           isActive ? "text-background/60" : "text-muted-foreground"
                         }`}
                       >
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="flex-1">
-                        <span className="font-serif text-xl leading-tight block">{p.title}</span>
-                        <span
-                          className={`text-[11px] uppercase tracking-wider ${
-                            isActive ? "text-background/60" : "text-muted-foreground"
-                          }`}
-                        >
-                          {p.category} · {p.year}
-                        </span>
+                      <span className="font-retro flex-1 text-lg leading-tight">
+                        {p.title}
                       </span>
                       <span
                         className={`text-xs transition-transform ${
@@ -161,9 +153,9 @@ function Index() {
             </ul>
           </nav>
 
-          <footer className="px-8 py-6 border-t border-border text-[11px] text-muted-foreground flex justify-between">
-            <a href="mailto:hello@ariavance.film" className="hover:text-foreground transition-colors">
-              hello@ariavance.film
+          <footer className="font-retro px-8 py-6 border-t border-border text-[11px] tracking-[0.15em] text-muted-foreground flex justify-between">
+            <a href="mailto:hello@ninefourvisuals.com" className="hover:text-foreground transition-colors">
+              hello@ninefourvisuals.com
             </a>
             <span>© 2024</span>
           </footer>
