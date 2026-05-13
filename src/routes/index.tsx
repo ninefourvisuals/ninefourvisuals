@@ -100,16 +100,19 @@ function Index() {
   const isAbout = activeId === "about";
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto grid min-h-screen max-w-[1400px] grid-cols-1 lg:grid-cols-[minmax(280px,360px)_1fr]">
+    <div className="relative min-h-screen text-foreground">
+      {/* Floating logo — top right */}
+      <div className="fixed top-5 right-5 z-50 glass rounded-2xl px-4 py-3 flex items-center gap-3">
+        <img src={logo} alt="Nine Four Visuals" className="w-10 h-auto" />
+        <span className="font-retro text-[8px] tracking-[0.25em] text-foreground/80 hidden sm:inline">
+          NINE FOUR<br />VISUALS
+        </span>
+      </div>
+
+      <div className="relative z-10 mx-auto grid min-h-screen max-w-[1400px] grid-cols-1 lg:grid-cols-[minmax(280px,360px)_1fr] gap-5 p-5">
         {/* LEFT — index */}
-        <aside className="border-b border-border lg:border-b-0 lg:border-r lg:sticky lg:top-0 lg:h-screen flex flex-col">
+        <aside className="glass rounded-3xl lg:sticky lg:top-5 lg:h-[calc(100vh-2.5rem)] flex flex-col overflow-hidden">
           <header className="px-8 pt-12 pb-10">
-            <img
-              src={logo}
-              alt="Nine Four Visuals"
-              className="w-20 h-auto mb-6"
-            />
             <h1 className="font-retro text-[13px] leading-[1.6]">
               MUHAMMAD<br />ISMAIL NASIR
             </h1>
@@ -174,7 +177,7 @@ function Index() {
         </aside>
 
         {/* RIGHT — content */}
-        <section key={activeId} className="px-8 py-12 lg:px-16 lg:py-20 animate-in fade-in duration-500">
+        <section key={activeId} className="glass rounded-3xl px-8 py-12 lg:px-16 lg:py-20 animate-in fade-in duration-500 overflow-hidden">
           {isAbout ? (
             <div className="max-w-3xl">
               <div className="font-retro flex items-center gap-3 text-[8px] tracking-[0.25em] text-muted-foreground mb-10">
