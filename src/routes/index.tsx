@@ -113,7 +113,8 @@ function Index() {
             <h1 className="font-retro text-[13px] leading-[1.6]">
               MUHAMMAD<br />ISMAIL NASIR
             </h1>
-            <p className="font-retro mt-5 text-[8px] tracking-[0.25em] text-muted-foreground">
+            <p className="font-retro mt-5 text-[8px] tracking-[0.25em] text-muted-foreground leading-[1.8]">
+              DIRECTOR · DOP · COLOURIST<br />
               ISLAMABAD · PK
             </p>
           </header>
