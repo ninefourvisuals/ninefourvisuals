@@ -139,9 +139,9 @@ function Index() {
             </ul>
           </nav>
 
-          <footer className="font-retro px-8 py-6 border-t border-border text-[11px] tracking-[0.15em] text-muted-foreground flex justify-between">
+          <footer className="font-retro px-8 py-8 text-[8px] tracking-[0.25em] text-muted-foreground flex justify-between">
             <a href="mailto:hello@ninefourvisuals.com" className="hover:text-foreground transition-colors">
-              hello@ninefourvisuals.com
+              EMAIL
             </a>
             <span>© 2024</span>
           </footer>
