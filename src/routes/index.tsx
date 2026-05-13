@@ -114,38 +114,24 @@ function Index() {
             </p>
           </header>
 
-          <nav className="flex-1 overflow-y-auto">
-            <p className="font-retro px-8 text-[10px] tracking-[0.25em] text-muted-foreground mb-3">
-              Works
+          <nav className="flex-1 overflow-y-auto px-8">
+            <p className="font-retro text-[8px] tracking-[0.25em] text-muted-foreground mb-6">
+              WORKS
             </p>
-            <ul>
-              {projects.map((p, i) => {
+            <ul className="space-y-4">
+              {projects.map((p) => {
                 const isActive = p.id === activeId;
                 return (
                   <li key={p.id}>
                     <button
                       onClick={() => setActiveId(p.id)}
-                      className={`group w-full text-left px-8 py-4 border-t border-border flex items-baseline gap-4 transition-colors ${
-                        isActive ? "bg-foreground text-background" : "hover:bg-muted"
+                      className={`font-retro text-left text-[11px] leading-relaxed transition-colors ${
+                        isActive
+                          ? "text-foreground"
+                          : "text-muted-foreground hover:text-foreground"
                       }`}
                     >
-                      <span
-                        className={`font-retro text-[11px] tabular-nums ${
-                          isActive ? "text-background/60" : "text-muted-foreground"
-                        }`}
-                      >
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="font-retro flex-1 text-lg leading-tight">
-                        {p.title}
-                      </span>
-                      <span
-                        className={`text-xs transition-transform ${
-                          isActive ? "translate-x-0" : "-translate-x-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0"
-                        }`}
-                      >
-                        →
-                      </span>
+                      {p.title.toUpperCase()}
                     </button>
                   </li>
                 );
