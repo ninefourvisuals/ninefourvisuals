@@ -3,7 +3,7 @@
 @import "tw-animate-css";
 
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+DW+Pica+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -149,5 +149,6 @@
     font-feature-settings: "ss01", "cv11";
   }
   .font-serif { font-family: var(--font-serif); }
-  .font-retro { font-family: "IM Fell English SC", "IM Fell DW Pica SC", serif; font-feature-settings: "smcp"; letter-spacing: 0.02em; }
+  .font-retro { font-family: "Press Start 2P", ui-monospace, monospace; letter-spacing: 0.02em; }
+  .font-pixel { font-family: "VT323", ui-monospace, monospace; letter-spacing: 0.04em; }
 }
