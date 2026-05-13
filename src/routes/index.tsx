@@ -150,17 +150,17 @@ function Index() {
         {/* RIGHT — content */}
         <section key={active.id} className="px-8 py-12 lg:px-16 lg:py-20 animate-in fade-in duration-500">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-8">
-              <span>{active.category}</span>
-              <span className="h-px w-8 bg-border" />
+            <div className="font-retro flex items-center gap-3 text-[8px] tracking-[0.25em] text-muted-foreground mb-10">
+              <span>{active.category.toUpperCase()}</span>
+              <span className="h-px w-6 bg-border" />
               <span>{active.year}</span>
             </div>
 
-            <h2 className="font-serif text-5xl md:text-7xl leading-[0.95] tracking-tight mb-10">
-              {active.title}
+            <h2 className="font-retro text-2xl md:text-[28px] leading-[1.5] mb-12">
+              {active.title.toUpperCase()}
             </h2>
 
-            <figure className="mb-10 overflow-hidden">
+            <figure className="mb-12 overflow-hidden">
               <img
                 src={active.image}
                 alt={active.title}
@@ -170,31 +170,31 @@ function Index() {
               />
             </figure>
 
-            <dl className="grid grid-cols-2 md:grid-cols-4 gap-6 pb-10 border-b border-border mb-10 text-sm">
+            <dl className="font-retro grid grid-cols-2 md:grid-cols-4 gap-8 pb-10 border-b border-border mb-12 text-[10px]">
               <div>
-                <dt className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-2">Role</dt>
-                <dd>{active.role}</dd>
+                <dt className="text-[8px] tracking-[0.25em] text-muted-foreground mb-3">ROLE</dt>
+                <dd className="leading-relaxed">{active.role.toUpperCase()}</dd>
               </div>
               <div>
-                <dt className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-2">Runtime</dt>
-                <dd>{active.runtime}</dd>
+                <dt className="text-[8px] tracking-[0.25em] text-muted-foreground mb-3">RUNTIME</dt>
+                <dd className="leading-relaxed">{active.runtime.toUpperCase()}</dd>
               </div>
               <div>
-                <dt className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-2">Location</dt>
-                <dd>{active.location}</dd>
+                <dt className="text-[8px] tracking-[0.25em] text-muted-foreground mb-3">LOCATION</dt>
+                <dd className="leading-relaxed">{active.location.toUpperCase()}</dd>
               </div>
               <div>
-                <dt className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-2">Year</dt>
-                <dd>{active.year}</dd>
+                <dt className="text-[8px] tracking-[0.25em] text-muted-foreground mb-3">YEAR</dt>
+                <dd className="leading-relaxed">{active.year}</dd>
               </div>
             </dl>
 
-            <p className="font-serif text-2xl md:text-3xl leading-snug text-foreground/90 max-w-[52ch]">
+            <p className="font-retro text-[11px] leading-[2] text-foreground/85 max-w-[60ch]">
               {active.synopsis}
             </p>
 
-            <button className="mt-12 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.25em] border-b border-foreground pb-1 hover:gap-5 transition-all">
-              Watch the film <span aria-hidden>→</span>
+            <button className="font-retro mt-14 inline-flex items-center gap-3 text-[9px] tracking-[0.25em] border-b border-foreground pb-2 hover:gap-5 transition-all">
+              WATCH THE FILM <span aria-hidden>→</span>
             </button>
           </div>
         </section>
