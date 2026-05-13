@@ -95,8 +95,9 @@ const projects: Project[] = [
 ];
 
 function Index() {
-  const [activeId, setActiveId] = useState<string>(projects[0].id);
-  const active = projects.find((p) => p.id === activeId)!;
+  const [activeId, setActiveId] = useState<string>("about");
+  const active = projects.find((p) => p.id === activeId);
+  const isAbout = activeId === "about";
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -118,12 +119,21 @@ function Index() {
           </header>
 
           <nav className="flex-1 overflow-y-auto px-8 pb-8">
-            <p className="font-retro text-[8px] tracking-[0.25em] text-muted-foreground mb-4">
-              ABOUT
+            <p className="font-retro text-[8px] tracking-[0.25em] text-muted-foreground mb-6">
+              INFO
             </p>
-            <p className="font-pixel text-[15px] leading-[1.45] text-foreground/80 mb-10">
-              Award nominated cinematic filmmaker with 4+ years of experience in high energy event coverage, automotive filmmaking, and branded content production. Twice nominated at the International Motor Film Awards (London). Experienced in fast-paced live environments, action cinematography, crew coordination, and Assistant Director level production support.
-            </p>
+            <ul className="space-y-4 mb-10">
+              <li>
+                <button
+                  onClick={() => setActiveId("about")}
+                  className={`font-retro text-left text-[11px] leading-relaxed transition-colors ${
+                    isAbout ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  ABOUT ME
+                </button>
+              </li>
+            </ul>
 
             <p className="font-retro text-[8px] tracking-[0.25em] text-muted-foreground mb-6">
               WORKS
@@ -163,55 +173,73 @@ function Index() {
         </aside>
 
         {/* RIGHT — content */}
-        <section key={active.id} className="px-8 py-12 lg:px-16 lg:py-20 animate-in fade-in duration-500">
-          <div className="max-w-3xl">
-            <div className="font-retro flex items-center gap-3 text-[8px] tracking-[0.25em] text-muted-foreground mb-10">
-              <span>{active.category.toUpperCase()}</span>
-              <span className="h-px w-6 bg-border" />
-              <span>{active.year}</span>
+        <section key={activeId} className="px-8 py-12 lg:px-16 lg:py-20 animate-in fade-in duration-500">
+          {isAbout ? (
+            <div className="max-w-3xl">
+              <div className="font-retro flex items-center gap-3 text-[8px] tracking-[0.25em] text-muted-foreground mb-10">
+                <span>INFO</span>
+                <span className="h-px w-6 bg-border" />
+                <span>2024</span>
+              </div>
+
+              <h2 className="font-retro text-2xl md:text-[28px] leading-[1.5] mb-12">
+                ABOUT ME
+              </h2>
+
+              <p className="font-retro text-[11px] leading-[2] text-foreground/85 max-w-[60ch]">
+                Award nominated cinematic filmmaker with 4+ years of experience in high energy event coverage, automotive filmmaking, and branded content production. Twice nominated at the International Motor Film Awards (London). Experienced in fast-paced live environments, action cinematography, crew coordination, and Assistant Director level production support.
+              </p>
             </div>
-
-            <h2 className="font-retro text-2xl md:text-[28px] leading-[1.5] mb-12">
-              {active.title.toUpperCase()}
-            </h2>
-
-            <figure className="mb-12 overflow-hidden">
-              <img
-                src={active.image}
-                alt={active.title}
-                width={1600}
-                height={900}
-                className="w-full aspect-[16/9] object-cover"
-              />
-            </figure>
-
-            <dl className="font-retro grid grid-cols-2 md:grid-cols-4 gap-8 pb-10 border-b border-border mb-12 text-[10px]">
-              <div>
-                <dt className="text-[8px] tracking-[0.25em] text-muted-foreground mb-3">ROLE</dt>
-                <dd className="leading-relaxed">{active.role.toUpperCase()}</dd>
+          ) : active ? (
+            <div className="max-w-3xl">
+              <div className="font-retro flex items-center gap-3 text-[8px] tracking-[0.25em] text-muted-foreground mb-10">
+                <span>{active.category.toUpperCase()}</span>
+                <span className="h-px w-6 bg-border" />
+                <span>{active.year}</span>
               </div>
-              <div>
-                <dt className="text-[8px] tracking-[0.25em] text-muted-foreground mb-3">RUNTIME</dt>
-                <dd className="leading-relaxed">{active.runtime.toUpperCase()}</dd>
-              </div>
-              <div>
-                <dt className="text-[8px] tracking-[0.25em] text-muted-foreground mb-3">LOCATION</dt>
-                <dd className="leading-relaxed">{active.location.toUpperCase()}</dd>
-              </div>
-              <div>
-                <dt className="text-[8px] tracking-[0.25em] text-muted-foreground mb-3">YEAR</dt>
-                <dd className="leading-relaxed">{active.year}</dd>
-              </div>
-            </dl>
 
-            <p className="font-retro text-[11px] leading-[2] text-foreground/85 max-w-[60ch]">
-              {active.synopsis}
-            </p>
+              <h2 className="font-retro text-2xl md:text-[28px] leading-[1.5] mb-12">
+                {active.title.toUpperCase()}
+              </h2>
 
-            <button className="font-retro mt-14 inline-flex items-center gap-3 text-[9px] tracking-[0.25em] border-b border-foreground pb-2 hover:gap-5 transition-all">
-              WATCH THE FILM <span aria-hidden>→</span>
-            </button>
-          </div>
+              <figure className="mb-12 overflow-hidden">
+                <img
+                  src={active.image}
+                  alt={active.title}
+                  width={1600}
+                  height={900}
+                  className="w-full aspect-[16/9] object-cover"
+                />
+              </figure>
+
+              <dl className="font-retro grid grid-cols-2 md:grid-cols-4 gap-8 pb-10 border-b border-border mb-12 text-[10px]">
+                <div>
+                  <dt className="text-[8px] tracking-[0.25em] text-muted-foreground mb-3">ROLE</dt>
+                  <dd className="leading-relaxed">{active.role.toUpperCase()}</dd>
+                </div>
+                <div>
+                  <dt className="text-[8px] tracking-[0.25em] text-muted-foreground mb-3">RUNTIME</dt>
+                  <dd className="leading-relaxed">{active.runtime.toUpperCase()}</dd>
+                </div>
+                <div>
+                  <dt className="text-[8px] tracking-[0.25em] text-muted-foreground mb-3">LOCATION</dt>
+                  <dd className="leading-relaxed">{active.location.toUpperCase()}</dd>
+                </div>
+                <div>
+                  <dt className="text-[8px] tracking-[0.25em] text-muted-foreground mb-3">YEAR</dt>
+                  <dd className="leading-relaxed">{active.year}</dd>
+                </div>
+              </dl>
+
+              <p className="font-retro text-[11px] leading-[2] text-foreground/85 max-w-[60ch]">
+                {active.synopsis}
+              </p>
+
+              <button className="font-retro mt-14 inline-flex items-center gap-3 text-[9px] tracking-[0.25em] border-b border-foreground pb-2 hover:gap-5 transition-all">
+                WATCH THE FILM <span aria-hidden>→</span>
+              </button>
+            </div>
+          ) : null}
         </section>
       </div>
     </div>
