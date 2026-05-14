@@ -110,24 +110,24 @@ function Index() {
         {/* LEFT — index */}
         <aside className="border-b border-border lg:border-b-0 lg:border-r lg:sticky lg:top-0 lg:h-screen flex flex-col">
           <header className="px-8 pt-12 pb-10">
-            <h1 className="font-retro text-[13px] leading-[1.6]">
+            <h1 className="font-retro text-[16px] leading-[1.6]">
               MUHAMMAD<br />ISMAIL NASIR
             </h1>
-            <p className="font-retro mt-5 text-[8px] tracking-[0.25em] text-muted-foreground leading-[1.8]">
+            <p className="font-retro mt-5 text-[10px] tracking-[0.25em] text-muted-foreground leading-[1.8]">
               DIRECTOR · DOP · COLOURIST<br />
               ISLAMABAD · PK
             </p>
           </header>
 
           <nav className="flex-1 overflow-y-auto px-8 pb-8">
-            <p className="font-retro text-[8px] tracking-[0.25em] text-muted-foreground mb-6">
+            <p className="font-retro text-[10px] tracking-[0.25em] text-muted-foreground mb-6">
               INFO
             </p>
             <ul className="space-y-4 mb-10">
               <li>
                 <button
                   onClick={() => setActiveId("about")}
-                  className={`font-retro text-left text-[11px] leading-relaxed transition-colors ${
+                  className={`font-retro text-left text-[13px] leading-relaxed transition-colors ${
                     isAbout ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
@@ -136,7 +136,7 @@ function Index() {
               </li>
             </ul>
 
-            <p className="font-retro text-[8px] tracking-[0.25em] text-muted-foreground mb-6">
+            <p className="font-retro text-[10px] tracking-[0.25em] text-muted-foreground mb-6">
               WORKS
             </p>
             <ul className="space-y-4">
@@ -146,7 +146,7 @@ function Index() {
                   <li key={p.id}>
                     <button
                       onClick={() => setActiveId(p.id)}
-                      className={`font-retro text-left text-[11px] leading-relaxed transition-colors ${
+                      className={`font-retro text-left text-[13px] leading-relaxed transition-colors ${
                         isActive
                           ? "text-foreground"
                           : "text-muted-foreground hover:text-foreground"
@@ -160,7 +160,7 @@ function Index() {
             </ul>
           </nav>
 
-          <footer className="font-retro px-8 py-8 text-[8px] tracking-[0.25em] text-muted-foreground border-t border-border">
+          <footer className="font-retro px-8 py-8 text-[10px] tracking-[0.25em] text-muted-foreground border-t border-border">
             <div className="flex flex-wrap gap-x-5 gap-y-3 mb-5">
               <a href="https://www.youtube.com/@ninefourvisuals/videos" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">YOUTUBE</a>
               <a href="https://www.instagram.com/ninefourvisuals/" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">INSTAGRAM</a>
