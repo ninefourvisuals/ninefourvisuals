@@ -99,59 +99,94 @@ function Index() {
   const active = projects.find((p) => p.id === activeId);
   const isAbout = activeId === "about";
 
+  const handleSelect = (id: string) => {
+    setActiveId(id);
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
+      // smooth scroll to content on mobile
+      requestAnimationFrame(() => {
+        document
+          .getElementById("content-panel")
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+  };
+
+  const socialLinks = (
+    <>
+      <div className="flex flex-wrap gap-x-5 gap-y-3 mb-5">
+        <a href="https://www.youtube.com/@ninefourvisuals/videos" target="_blank" rel="noreferrer" className="relative hover:text-foreground transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-foreground after:transition-all after:duration-300 hover:after:w-full">YOUTUBE</a>
+        <a href="https://www.instagram.com/ninefourvisuals/" target="_blank" rel="noreferrer" className="relative hover:text-foreground transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-foreground after:transition-all after:duration-300 hover:after:w-full">INSTAGRAM</a>
+        <a href="https://www.linkedin.com/in/muhammad-ismail-nasir-3103761b3/" target="_blank" rel="noreferrer" className="relative hover:text-foreground transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-foreground after:transition-all after:duration-300 hover:after:w-full">LINKEDIN</a>
+      </div>
+      <div className="flex justify-between">
+        <a href="mailto:hello@ninefourvisuals.com" className="hover:text-foreground transition-colors">EMAIL</a>
+        <span>© 2024</span>
+      </div>
+    </>
+  );
+
+  const navItemClass = (isActive: boolean) =>
+    `font-retro group inline-flex items-center gap-2 text-left text-[12px] lg:text-[13px] leading-relaxed transition-all duration-300 ease-out hover:translate-x-1 ${
+      isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+    }`;
+
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Floating logo — top right */}
-      <div className="fixed top-6 right-8 z-50">
-        <img src={logo} alt="Nine Four Visuals" className="w-14 h-auto" />
+      {/* Floating logo — top right (smaller on mobile to avoid name overlap) */}
+      <div className="fixed top-4 right-4 lg:top-6 lg:right-8 z-50">
+        <img
+          src={logo}
+          alt="Nine Four Visuals"
+          className="w-9 lg:w-14 h-auto transition-transform duration-300 hover:scale-105"
+        />
       </div>
 
       <div className="mx-auto grid min-h-screen max-w-[1400px] grid-cols-1 lg:grid-cols-[minmax(280px,360px)_1fr]">
         {/* LEFT — index */}
         <aside className="border-b border-border lg:border-b-0 lg:border-r lg:sticky lg:top-0 lg:h-screen flex flex-col">
-          <header className="px-8 pt-12 pb-10">
-            <h1 className="font-retro text-[16px] leading-[1.6]">
+          <header className="px-6 lg:px-8 pt-10 lg:pt-12 pb-8 lg:pb-10 pr-16 lg:pr-8">
+            <h1 className="font-retro text-[14px] lg:text-[16px] leading-[1.6]">
               MUHAMMAD<br />ISMAIL NASIR
             </h1>
-            <p className="font-retro mt-5 text-[10px] tracking-[0.25em] text-muted-foreground leading-[1.8]">
+            <p className="font-retro mt-4 lg:mt-5 text-[9px] lg:text-[10px] tracking-[0.25em] text-muted-foreground leading-[1.8]">
               DIRECTOR · DOP · COLOURIST<br />
               ISLAMABAD · PK
             </p>
           </header>
 
-          <nav className="flex-1 overflow-y-auto px-8 pb-8">
-            <p className="font-retro text-[10px] tracking-[0.25em] text-muted-foreground mb-6">
+          <nav className="lg:flex-1 lg:overflow-y-auto px-6 lg:px-8 pb-8">
+            <p className="font-retro text-[9px] lg:text-[10px] tracking-[0.25em] text-muted-foreground mb-5 lg:mb-6">
               INFO
             </p>
-            <ul className="space-y-4 mb-10">
+            <ul className="space-y-3 lg:space-y-4 mb-8 lg:mb-10">
               <li>
-                <button
-                  onClick={() => setActiveId("about")}
-                  className={`font-retro text-left text-[13px] leading-relaxed transition-colors ${
-                    isAbout ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
+                <button onClick={() => handleSelect("about")} className={navItemClass(isAbout)}>
+                  <span
+                    aria-hidden
+                    className={`inline-block h-px bg-foreground transition-all duration-300 ${
+                      isAbout ? "w-4 opacity-100" : "w-0 opacity-0 group-hover:w-3 group-hover:opacity-60"
+                    }`}
+                  />
                   ABOUT ME
                 </button>
               </li>
             </ul>
 
-            <p className="font-retro text-[10px] tracking-[0.25em] text-muted-foreground mb-6">
+            <p className="font-retro text-[9px] lg:text-[10px] tracking-[0.25em] text-muted-foreground mb-5 lg:mb-6">
               WORKS
             </p>
-            <ul className="space-y-4">
+            <ul className="space-y-3 lg:space-y-4">
               {projects.map((p) => {
                 const isActive = p.id === activeId;
                 return (
                   <li key={p.id}>
-                    <button
-                      onClick={() => setActiveId(p.id)}
-                      className={`font-retro text-left text-[13px] leading-relaxed transition-colors ${
-                        isActive
-                          ? "text-foreground"
-                          : "text-muted-foreground hover:text-foreground"
-                      }`}
-                    >
+                    <button onClick={() => handleSelect(p.id)} className={navItemClass(isActive)}>
+                      <span
+                        aria-hidden
+                        className={`inline-block h-px bg-foreground transition-all duration-300 ${
+                          isActive ? "w-4 opacity-100" : "w-0 opacity-0 group-hover:w-3 group-hover:opacity-60"
+                        }`}
+                      />
                       {p.title.toUpperCase()}
                     </button>
                   </li>
@@ -160,89 +195,91 @@ function Index() {
             </ul>
           </nav>
 
-          <footer className="font-retro px-8 py-8 text-[10px] tracking-[0.25em] text-muted-foreground border-t border-border">
-            <div className="flex flex-wrap gap-x-5 gap-y-3 mb-5">
-              <a href="https://www.youtube.com/@ninefourvisuals/videos" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">YOUTUBE</a>
-              <a href="https://www.instagram.com/ninefourvisuals/" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">INSTAGRAM</a>
-              <a href="https://www.linkedin.com/in/muhammad-ismail-nasir-3103761b3/" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">LINKEDIN</a>
-            </div>
-            <div className="flex justify-between">
-              <a href="mailto:hello@ninefourvisuals.com" className="hover:text-foreground transition-colors">EMAIL</a>
-              <span>© 2024</span>
-            </div>
+          {/* Footer — desktop only inside aside */}
+          <footer className="hidden lg:block font-retro px-8 py-8 text-[10px] tracking-[0.25em] text-muted-foreground border-t border-border">
+            {socialLinks}
           </footer>
         </aside>
 
         {/* RIGHT — content */}
-        <section key={activeId} className="px-8 py-12 lg:px-16 lg:py-20 animate-in fade-in duration-500">
+        <section
+          id="content-panel"
+          key={activeId}
+          className="px-6 py-10 lg:px-16 lg:py-20 animate-in fade-in slide-in-from-bottom-2 duration-500"
+        >
           {isAbout ? (
             <div className="max-w-3xl">
-              <div className="font-retro flex items-center gap-3 text-[10px] tracking-[0.25em] text-muted-foreground mb-10">
+              <div className="font-retro flex items-center gap-3 text-[9px] lg:text-[10px] tracking-[0.25em] text-muted-foreground mb-8 lg:mb-10">
                 <span>INFO</span>
                 <span className="h-px w-6 bg-border" />
                 <span>2024</span>
               </div>
 
-              <h2 className="font-retro text-2xl md:text-[32px] leading-[1.5] mb-12">
+              <h2 className="font-retro text-[20px] md:text-[28px] lg:text-[32px] leading-[1.5] mb-10 lg:mb-12">
                 ABOUT ME
               </h2>
 
-              <p className="font-retro text-[13px] leading-[2] text-foreground/85 max-w-[60ch]">
+              <p className="font-retro text-[11px] lg:text-[13px] leading-[2] text-foreground/85 max-w-[60ch]">
                 Award nominated cinematic filmmaker with 4+ years of experience in high energy event coverage, automotive filmmaking, and branded content production. Twice nominated at the International Motor Film Awards (London). Experienced in fast-paced live environments, action cinematography, crew coordination, and Assistant Director level production support.
               </p>
             </div>
           ) : active ? (
             <div className="max-w-3xl">
-              <div className="font-retro flex items-center gap-3 text-[10px] tracking-[0.25em] text-muted-foreground mb-10">
+              <div className="font-retro flex items-center gap-3 text-[9px] lg:text-[10px] tracking-[0.25em] text-muted-foreground mb-8 lg:mb-10">
                 <span>{active.category.toUpperCase()}</span>
                 <span className="h-px w-6 bg-border" />
                 <span>{active.year}</span>
               </div>
 
-              <h2 className="font-retro text-2xl md:text-[32px] leading-[1.5] mb-12">
+              <h2 className="font-retro text-[18px] md:text-[26px] lg:text-[32px] leading-[1.5] mb-10 lg:mb-12 break-words">
                 {active.title.toUpperCase()}
               </h2>
 
-              <figure className="mb-12 overflow-hidden">
+              <figure className="mb-10 lg:mb-12 overflow-hidden group">
                 <img
                   src={active.image}
                   alt={active.title}
                   width={1600}
                   height={900}
-                  className="w-full aspect-[16/9] object-cover"
+                  className="w-full aspect-[16/9] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 />
               </figure>
 
-              <dl className="font-retro grid grid-cols-2 md:grid-cols-4 gap-8 pb-10 border-b border-border mb-12 text-[12px]">
+              <dl className="font-retro grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 pb-8 lg:pb-10 border-b border-border mb-10 lg:mb-12 text-[10px] lg:text-[12px]">
                 <div>
-                  <dt className="text-[10px] tracking-[0.25em] text-muted-foreground mb-3">ROLE</dt>
+                  <dt className="text-[9px] lg:text-[10px] tracking-[0.25em] text-muted-foreground mb-2 lg:mb-3">ROLE</dt>
                   <dd className="leading-relaxed">{active.role.toUpperCase()}</dd>
                 </div>
                 <div>
-                  <dt className="text-[10px] tracking-[0.25em] text-muted-foreground mb-3">RUNTIME</dt>
+                  <dt className="text-[9px] lg:text-[10px] tracking-[0.25em] text-muted-foreground mb-2 lg:mb-3">RUNTIME</dt>
                   <dd className="leading-relaxed">{active.runtime.toUpperCase()}</dd>
                 </div>
                 <div>
-                  <dt className="text-[10px] tracking-[0.25em] text-muted-foreground mb-3">LOCATION</dt>
+                  <dt className="text-[9px] lg:text-[10px] tracking-[0.25em] text-muted-foreground mb-2 lg:mb-3">LOCATION</dt>
                   <dd className="leading-relaxed">{active.location.toUpperCase()}</dd>
                 </div>
                 <div>
-                  <dt className="text-[10px] tracking-[0.25em] text-muted-foreground mb-3">YEAR</dt>
+                  <dt className="text-[9px] lg:text-[10px] tracking-[0.25em] text-muted-foreground mb-2 lg:mb-3">YEAR</dt>
                   <dd className="leading-relaxed">{active.year}</dd>
                 </div>
               </dl>
 
-              <p className="font-retro text-[13px] leading-[2] text-foreground/85 max-w-[60ch]">
+              <p className="font-retro text-[11px] lg:text-[13px] leading-[2] text-foreground/85 max-w-[60ch]">
                 {active.synopsis}
               </p>
 
-              <button className="font-retro mt-14 inline-flex items-center gap-3 text-[11px] tracking-[0.25em] border-b border-foreground pb-2 hover:gap-5 transition-all">
-                WATCH THE FILM <span aria-hidden>→</span>
+              <button className="font-retro mt-12 lg:mt-14 inline-flex items-center gap-3 text-[10px] lg:text-[11px] tracking-[0.25em] border-b border-foreground pb-2 transition-all duration-300 ease-out hover:gap-5 hover:-translate-y-0.5">
+                WATCH THE FILM <span aria-hidden className="transition-transform duration-300">→</span>
               </button>
             </div>
           ) : null}
         </section>
       </div>
+
+      {/* Footer — mobile only, sits at the very bottom of the page */}
+      <footer className="lg:hidden font-retro px-6 py-8 text-[9px] tracking-[0.25em] text-muted-foreground border-t border-border">
+        {socialLinks}
+      </footer>
     </div>
   );
 }
