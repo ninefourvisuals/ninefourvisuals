@@ -110,24 +110,24 @@ function Index() {
         {/* LEFT — index */}
         <aside className="border-b border-border lg:border-b-0 lg:border-r lg:sticky lg:top-0 lg:h-screen flex flex-col">
           <header className="px-8 pt-12 pb-10">
-            <h1 className="font-retro text-[13px] leading-[1.6]">
+            <h1 className="font-retro text-[16px] leading-[1.6]">
               MUHAMMAD<br />ISMAIL NASIR
             </h1>
-            <p className="font-retro mt-5 text-[8px] tracking-[0.25em] text-muted-foreground leading-[1.8]">
+            <p className="font-retro mt-5 text-[10px] tracking-[0.25em] text-muted-foreground leading-[1.8]">
               DIRECTOR · DOP · COLOURIST<br />
               ISLAMABAD · PK
             </p>
           </header>
 
           <nav className="flex-1 overflow-y-auto px-8 pb-8">
-            <p className="font-retro text-[8px] tracking-[0.25em] text-muted-foreground mb-6">
+            <p className="font-retro text-[10px] tracking-[0.25em] text-muted-foreground mb-6">
               INFO
             </p>
             <ul className="space-y-4 mb-10">
               <li>
                 <button
                   onClick={() => setActiveId("about")}
-                  className={`font-retro text-left text-[11px] leading-relaxed transition-colors ${
+                  className={`font-retro text-left text-[13px] leading-relaxed transition-colors ${
                     isAbout ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
@@ -136,7 +136,7 @@ function Index() {
               </li>
             </ul>
 
-            <p className="font-retro text-[8px] tracking-[0.25em] text-muted-foreground mb-6">
+            <p className="font-retro text-[10px] tracking-[0.25em] text-muted-foreground mb-6">
               WORKS
             </p>
             <ul className="space-y-4">
@@ -146,7 +146,7 @@ function Index() {
                   <li key={p.id}>
                     <button
                       onClick={() => setActiveId(p.id)}
-                      className={`font-retro text-left text-[11px] leading-relaxed transition-colors ${
+                      className={`font-retro text-left text-[13px] leading-relaxed transition-colors ${
                         isActive
                           ? "text-foreground"
                           : "text-muted-foreground hover:text-foreground"
@@ -160,7 +160,7 @@ function Index() {
             </ul>
           </nav>
 
-          <footer className="font-retro px-8 py-8 text-[8px] tracking-[0.25em] text-muted-foreground border-t border-border">
+          <footer className="font-retro px-8 py-8 text-[10px] tracking-[0.25em] text-muted-foreground border-t border-border">
             <div className="flex flex-wrap gap-x-5 gap-y-3 mb-5">
               <a href="https://www.youtube.com/@ninefourvisuals/videos" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">YOUTUBE</a>
               <a href="https://www.instagram.com/ninefourvisuals/" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">INSTAGRAM</a>
@@ -177,29 +177,29 @@ function Index() {
         <section key={activeId} className="px-8 py-12 lg:px-16 lg:py-20 animate-in fade-in duration-500">
           {isAbout ? (
             <div className="max-w-3xl">
-              <div className="font-retro flex items-center gap-3 text-[8px] tracking-[0.25em] text-muted-foreground mb-10">
+              <div className="font-retro flex items-center gap-3 text-[10px] tracking-[0.25em] text-muted-foreground mb-10">
                 <span>INFO</span>
                 <span className="h-px w-6 bg-border" />
                 <span>2024</span>
               </div>
 
-              <h2 className="font-retro text-2xl md:text-[28px] leading-[1.5] mb-12">
+              <h2 className="font-retro text-2xl md:text-[32px] leading-[1.5] mb-12">
                 ABOUT ME
               </h2>
 
-              <p className="font-retro text-[11px] leading-[2] text-foreground/85 max-w-[60ch]">
+              <p className="font-retro text-[13px] leading-[2] text-foreground/85 max-w-[60ch]">
                 Award nominated cinematic filmmaker with 4+ years of experience in high energy event coverage, automotive filmmaking, and branded content production. Twice nominated at the International Motor Film Awards (London). Experienced in fast-paced live environments, action cinematography, crew coordination, and Assistant Director level production support.
               </p>
             </div>
           ) : active ? (
             <div className="max-w-3xl">
-              <div className="font-retro flex items-center gap-3 text-[8px] tracking-[0.25em] text-muted-foreground mb-10">
+              <div className="font-retro flex items-center gap-3 text-[10px] tracking-[0.25em] text-muted-foreground mb-10">
                 <span>{active.category.toUpperCase()}</span>
                 <span className="h-px w-6 bg-border" />
                 <span>{active.year}</span>
               </div>
 
-              <h2 className="font-retro text-2xl md:text-[28px] leading-[1.5] mb-12">
+              <h2 className="font-retro text-2xl md:text-[32px] leading-[1.5] mb-12">
                 {active.title.toUpperCase()}
               </h2>
 
@@ -213,30 +213,30 @@ function Index() {
                 />
               </figure>
 
-              <dl className="font-retro grid grid-cols-2 md:grid-cols-4 gap-8 pb-10 border-b border-border mb-12 text-[10px]">
+              <dl className="font-retro grid grid-cols-2 md:grid-cols-4 gap-8 pb-10 border-b border-border mb-12 text-[12px]">
                 <div>
-                  <dt className="text-[8px] tracking-[0.25em] text-muted-foreground mb-3">ROLE</dt>
+                  <dt className="text-[10px] tracking-[0.25em] text-muted-foreground mb-3">ROLE</dt>
                   <dd className="leading-relaxed">{active.role.toUpperCase()}</dd>
                 </div>
                 <div>
-                  <dt className="text-[8px] tracking-[0.25em] text-muted-foreground mb-3">RUNTIME</dt>
+                  <dt className="text-[10px] tracking-[0.25em] text-muted-foreground mb-3">RUNTIME</dt>
                   <dd className="leading-relaxed">{active.runtime.toUpperCase()}</dd>
                 </div>
                 <div>
-                  <dt className="text-[8px] tracking-[0.25em] text-muted-foreground mb-3">LOCATION</dt>
+                  <dt className="text-[10px] tracking-[0.25em] text-muted-foreground mb-3">LOCATION</dt>
                   <dd className="leading-relaxed">{active.location.toUpperCase()}</dd>
                 </div>
                 <div>
-                  <dt className="text-[8px] tracking-[0.25em] text-muted-foreground mb-3">YEAR</dt>
+                  <dt className="text-[10px] tracking-[0.25em] text-muted-foreground mb-3">YEAR</dt>
                   <dd className="leading-relaxed">{active.year}</dd>
                 </div>
               </dl>
 
-              <p className="font-retro text-[11px] leading-[2] text-foreground/85 max-w-[60ch]">
+              <p className="font-retro text-[13px] leading-[2] text-foreground/85 max-w-[60ch]">
                 {active.synopsis}
               </p>
 
-              <button className="font-retro mt-14 inline-flex items-center gap-3 text-[9px] tracking-[0.25em] border-b border-foreground pb-2 hover:gap-5 transition-all">
+              <button className="font-retro mt-14 inline-flex items-center gap-3 text-[11px] tracking-[0.25em] border-b border-foreground pb-2 hover:gap-5 transition-all">
                 WATCH THE FILM <span aria-hidden>→</span>
               </button>
             </div>
