@@ -219,24 +219,24 @@ function Index() {
                   <dd className="leading-relaxed">{active.role.toUpperCase()}</dd>
                 </div>
                 <div>
-                  <dt className="text-[8px] tracking-[0.25em] text-muted-foreground mb-3">RUNTIME</dt>
+                  <dt className="text-[10px] tracking-[0.25em] text-muted-foreground mb-3">RUNTIME</dt>
                   <dd className="leading-relaxed">{active.runtime.toUpperCase()}</dd>
                 </div>
                 <div>
-                  <dt className="text-[8px] tracking-[0.25em] text-muted-foreground mb-3">LOCATION</dt>
+                  <dt className="text-[10px] tracking-[0.25em] text-muted-foreground mb-3">LOCATION</dt>
                   <dd className="leading-relaxed">{active.location.toUpperCase()}</dd>
                 </div>
                 <div>
-                  <dt className="text-[8px] tracking-[0.25em] text-muted-foreground mb-3">YEAR</dt>
+                  <dt className="text-[10px] tracking-[0.25em] text-muted-foreground mb-3">YEAR</dt>
                   <dd className="leading-relaxed">{active.year}</dd>
                 </div>
               </dl>
 
-              <p className="font-retro text-[11px] leading-[2] text-foreground/85 max-w-[60ch]">
+              <p className="font-retro text-[13px] leading-[2] text-foreground/85 max-w-[60ch]">
                 {active.synopsis}
               </p>
 
-              <button className="font-retro mt-14 inline-flex items-center gap-3 text-[9px] tracking-[0.25em] border-b border-foreground pb-2 hover:gap-5 transition-all">
+              <button className="font-retro mt-14 inline-flex items-center gap-3 text-[11px] tracking-[0.25em] border-b border-foreground pb-2 hover:gap-5 transition-all">
                 WATCH THE FILM <span aria-hidden>→</span>
               </button>
             </div>
