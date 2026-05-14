@@ -177,29 +177,29 @@ function Index() {
         <section key={activeId} className="px-8 py-12 lg:px-16 lg:py-20 animate-in fade-in duration-500">
           {isAbout ? (
             <div className="max-w-3xl">
-              <div className="font-retro flex items-center gap-3 text-[8px] tracking-[0.25em] text-muted-foreground mb-10">
+              <div className="font-retro flex items-center gap-3 text-[10px] tracking-[0.25em] text-muted-foreground mb-10">
                 <span>INFO</span>
                 <span className="h-px w-6 bg-border" />
                 <span>2024</span>
               </div>
 
-              <h2 className="font-retro text-2xl md:text-[28px] leading-[1.5] mb-12">
+              <h2 className="font-retro text-2xl md:text-[32px] leading-[1.5] mb-12">
                 ABOUT ME
               </h2>
 
-              <p className="font-retro text-[11px] leading-[2] text-foreground/85 max-w-[60ch]">
+              <p className="font-retro text-[13px] leading-[2] text-foreground/85 max-w-[60ch]">
                 Award nominated cinematic filmmaker with 4+ years of experience in high energy event coverage, automotive filmmaking, and branded content production. Twice nominated at the International Motor Film Awards (London). Experienced in fast-paced live environments, action cinematography, crew coordination, and Assistant Director level production support.
               </p>
             </div>
           ) : active ? (
             <div className="max-w-3xl">
-              <div className="font-retro flex items-center gap-3 text-[8px] tracking-[0.25em] text-muted-foreground mb-10">
+              <div className="font-retro flex items-center gap-3 text-[10px] tracking-[0.25em] text-muted-foreground mb-10">
                 <span>{active.category.toUpperCase()}</span>
                 <span className="h-px w-6 bg-border" />
                 <span>{active.year}</span>
               </div>
 
-              <h2 className="font-retro text-2xl md:text-[28px] leading-[1.5] mb-12">
+              <h2 className="font-retro text-2xl md:text-[32px] leading-[1.5] mb-12">
                 {active.title.toUpperCase()}
               </h2>
 
@@ -213,9 +213,9 @@ function Index() {
                 />
               </figure>
 
-              <dl className="font-retro grid grid-cols-2 md:grid-cols-4 gap-8 pb-10 border-b border-border mb-12 text-[10px]">
+              <dl className="font-retro grid grid-cols-2 md:grid-cols-4 gap-8 pb-10 border-b border-border mb-12 text-[12px]">
                 <div>
-                  <dt className="text-[8px] tracking-[0.25em] text-muted-foreground mb-3">ROLE</dt>
+                  <dt className="text-[10px] tracking-[0.25em] text-muted-foreground mb-3">ROLE</dt>
                   <dd className="leading-relaxed">{active.role.toUpperCase()}</dd>
                 </div>
                 <div>
