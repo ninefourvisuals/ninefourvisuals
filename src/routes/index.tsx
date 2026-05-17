@@ -29,6 +29,7 @@ type Project = {
   location: string;
   image: string;
   synopsis: string;
+  videoUrl?: string;
 };
 
 const projects: Project[] = [
@@ -43,6 +44,7 @@ const projects: Project[] = [
     image: p1,
     synopsis:
       "A solitary climber confronts the weight of memory above the cloud line. Shot on 35mm across two weeks in the Westfjords, the film moves at the pace of weather — patient, unrelieved, and quietly devastating.",
+    videoUrl: "https://www.youtube.com/embed/-HtbFTytbGk",
   },
   {
     id: "neon-quiet",
@@ -236,33 +238,26 @@ function Index() {
               </h2>
 
               <figure className="mb-10 lg:mb-12 overflow-hidden group">
-                <img
-                  src={active.image}
-                  alt={active.title}
-                  width={1600}
-                  height={900}
-                  className="w-full aspect-[16/9] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                />
+                {active.videoUrl ? (
+                  <div className="relative w-full aspect-[16/9]">
+                    <iframe
+                      src={active.videoUrl}
+                      title={active.title}
+                      className="absolute inset-0 w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                  </div>
+                ) : (
+                  <img
+                    src={active.image}
+                    alt={active.title}
+                    width={1600}
+                    height={900}
+                    className="w-full aspect-[16/9] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  />
+                )}
               </figure>
-
-              <dl className="font-retro grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 pb-8 lg:pb-10 border-b border-border mb-10 lg:mb-12 text-[10px] lg:text-[12px]">
-                <div>
-                  <dt className="text-[9px] lg:text-[10px] tracking-[0.25em] text-muted-foreground mb-2 lg:mb-3">ROLE</dt>
-                  <dd className="leading-relaxed">{active.role.toUpperCase()}</dd>
-                </div>
-                <div>
-                  <dt className="text-[9px] lg:text-[10px] tracking-[0.25em] text-muted-foreground mb-2 lg:mb-3">RUNTIME</dt>
-                  <dd className="leading-relaxed">{active.runtime.toUpperCase()}</dd>
-                </div>
-                <div>
-                  <dt className="text-[9px] lg:text-[10px] tracking-[0.25em] text-muted-foreground mb-2 lg:mb-3">LOCATION</dt>
-                  <dd className="leading-relaxed">{active.location.toUpperCase()}</dd>
-                </div>
-                <div>
-                  <dt className="text-[9px] lg:text-[10px] tracking-[0.25em] text-muted-foreground mb-2 lg:mb-3">YEAR</dt>
-                  <dd className="leading-relaxed">{active.year}</dd>
-                </div>
-              </dl>
 
               <p className="font-retro text-[11px] lg:text-[13px] leading-[2] text-foreground/85 max-w-[60ch]">
                 {active.synopsis}
