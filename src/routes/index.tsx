@@ -61,6 +61,7 @@ const projects: Project[] = [
       "https://www.youtube.com/embed/IM1ACP5g834",
       "https://www.youtube.com/embed/5rke1jP5rL4",
       "https://www.youtube.com/embed/OZlP7tgHnaA",
+      "https://www.instagram.com/reel/DUAuClWDiHG/embed",
     ],
   },
   {
@@ -241,17 +242,24 @@ function Index() {
 
               {active.videoUrls && active.videoUrls.length > 0 ? (
                 <div className="mb-10 lg:mb-12 space-y-6 lg:space-y-8">
-                  {active.videoUrls.map((url, i) => (
-                    <div key={url} className="relative w-full aspect-[16/9] overflow-hidden">
-                      <iframe
-                        src={url}
-                        title={`${active.title} ${i + 1}`}
-                        className="absolute inset-0 w-full h-full"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                      />
-                    </div>
-                  ))}
+                  {active.videoUrls.map((url, i) => {
+                    const isInstagram = url.includes("instagram.com");
+                    return (
+                      <div
+                        key={url}
+                        className={`relative w-full overflow-hidden ${isInstagram ? "max-w-[420px] mx-auto aspect-[9/16]" : "aspect-[16/9]"}`}
+                      >
+                        <iframe
+                          src={url}
+                          title={`${active.title} ${i + 1}`}
+                          className="absolute inset-0 w-full h-full"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                          scrolling="no"
+                        />
+                      </div>
+                    );
+                  })}
                 </div>
               ) : (
                 <figure className="mb-10 lg:mb-12 overflow-hidden group">
