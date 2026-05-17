@@ -44,6 +44,7 @@ const projects: Project[] = [
     image: p1,
     synopsis:
       "A solitary climber confronts the weight of memory above the cloud line. Shot on 35mm across two weeks in the Westfjords, the film moves at the pace of weather — patient, unrelieved, and quietly devastating.",
+    videoUrl: "https://www.youtube.com/embed/-HtbFTytbGk",
   },
   {
     id: "neon-quiet",
