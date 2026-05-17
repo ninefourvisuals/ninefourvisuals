@@ -47,52 +47,48 @@ const projects: Project[] = [
     videoUrl: "https://www.youtube.com/embed/-HtbFTytbGk",
   },
   {
-    id: "neon-quiet",
-    title: "Neon, Quiet",
-    year: "2024",
-    category: "Short",
-    role: "Director",
-    runtime: "12 min",
-    location: "Tokyo",
+    id: "iwc",
+    title: "IWC",
+    year: "",
+    category: "Project",
+    role: "",
+    runtime: "",
+    location: "",
     image: p2,
-    synopsis:
-      "A late-night encounter between two strangers under the dripping signage of Shinjuku's back alleys. A study in restraint, rain, and the language of the unsaid.",
+    synopsis: "",
   },
   {
-    id: "last-note",
-    title: "Last Note at Midnight",
-    year: "2023",
-    category: "Documentary",
-    role: "Director, DP",
-    runtime: "78 min",
-    location: "New Orleans",
+    id: "shell",
+    title: "Shell",
+    year: "",
+    category: "Project",
+    role: "",
+    runtime: "",
+    location: "",
     image: p3,
-    synopsis:
-      "An intimate portrait of the final residency of saxophonist Eli Marin. Filmed over eleven nights at a club that closed three months later. Premiered at Sundance, 2024.",
+    synopsis: "",
   },
   {
-    id: "westward",
-    title: "Westward",
-    year: "2023",
-    category: "Commercial",
-    role: "Director",
-    runtime: "60 sec",
-    location: "Wadi Rum",
+    id: "iron-will",
+    title: "Iron Will",
+    year: "",
+    category: "Project",
+    role: "",
+    runtime: "",
+    location: "",
     image: p4,
-    synopsis:
-      "A wordless campaign for a heritage outerwear brand. One walker, one horizon, one take. Awarded Gold for Cinematography at the Cannes Lions.",
+    synopsis: "",
   },
   {
-    id: "velocity",
-    title: "Velocity",
-    year: "2022",
-    category: "Experimental",
-    role: "Director, Editor",
-    runtime: "6 min",
-    location: "Los Angeles",
+    id: "pds",
+    title: "PDS",
+    year: "",
+    category: "Project",
+    role: "",
+    runtime: "",
+    location: "",
     image: p5,
-    synopsis:
-      "An experiment in motion and color — the city dissolved into pure light. Selected for the Vimeo Staff Picks year-end retrospective.",
+    synopsis: "",
   },
 ];
 
@@ -263,9 +259,6 @@ function Index() {
                 {active.synopsis}
               </p>
 
-              <button className="font-retro mt-12 lg:mt-14 inline-flex items-center gap-3 text-[10px] lg:text-[11px] tracking-[0.25em] border-b border-foreground pb-2 transition-all duration-300 ease-out hover:gap-5 hover:-translate-y-0.5">
-                WATCH THE FILM <span aria-hidden className="transition-transform duration-300">→</span>
-              </button>
             </div>
           ) : null}
         </section>
