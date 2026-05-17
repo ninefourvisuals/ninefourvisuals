@@ -29,6 +29,7 @@ type Project = {
   location: string;
   image: string;
   synopsis: string;
+  videoUrl?: string;
 };
 
 const projects: Project[] = [
