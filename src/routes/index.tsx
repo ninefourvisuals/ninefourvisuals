@@ -34,7 +34,7 @@ type Project = {
 const projects: Project[] = [
   {
     id: "silent-horizon",
-    title: "The Silent Horizon",
+    title: "AHSa\n",
     year: "2024",
     category: "Feature",
     role: "Director, DP",
