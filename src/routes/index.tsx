@@ -30,6 +30,7 @@ type Project = {
   image: string;
   synopsis: string;
   videoUrl?: string;
+  videoUrls?: string[];
 };
 
 const projects: Project[] = [
@@ -56,6 +57,11 @@ const projects: Project[] = [
     location: "",
     image: p2,
     synopsis: "",
+    videoUrls: [
+      "https://www.youtube.com/embed/IM1ACP5g834",
+      "https://www.youtube.com/embed/5rke1jP5rL4",
+      "https://www.youtube.com/embed/OZlP7tgHnaA",
+    ],
   },
   {
     id: "shell",
@@ -233,27 +239,43 @@ function Index() {
                 {active.title.toUpperCase()}
               </h2>
 
-              <figure className="mb-10 lg:mb-12 overflow-hidden group">
-                {active.videoUrl ? (
-                  <div className="relative w-full aspect-[16/9]">
-                    <iframe
-                      src={active.videoUrl}
-                      title={active.title}
-                      className="absolute inset-0 w-full h-full"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
+              {active.videoUrls && active.videoUrls.length > 0 ? (
+                <div className="mb-10 lg:mb-12 space-y-6 lg:space-y-8">
+                  {active.videoUrls.map((url, i) => (
+                    <div key={url} className="relative w-full aspect-[16/9] overflow-hidden">
+                      <iframe
+                        src={url}
+                        title={`${active.title} ${i + 1}`}
+                        className="absolute inset-0 w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <figure className="mb-10 lg:mb-12 overflow-hidden group">
+                  {active.videoUrl ? (
+                    <div className="relative w-full aspect-[16/9]">
+                      <iframe
+                        src={active.videoUrl}
+                        title={active.title}
+                        className="absolute inset-0 w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      />
+                    </div>
+                  ) : (
+                    <img
+                      src={active.image}
+                      alt={active.title}
+                      width={1600}
+                      height={900}
+                      className="w-full aspect-[16/9] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     />
-                  </div>
-                ) : (
-                  <img
-                    src={active.image}
-                    alt={active.title}
-                    width={1600}
-                    height={900}
-                    className="w-full aspect-[16/9] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                  />
-                )}
-              </figure>
+                  )}
+                </figure>
+              )}
 
               <p className="font-retro text-[11px] lg:text-[13px] leading-[2] text-foreground/85 max-w-[60ch]">
                 {active.synopsis}
