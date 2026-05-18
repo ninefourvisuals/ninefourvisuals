@@ -61,7 +61,6 @@ const projects: Project[] = [
       "https://www.youtube.com/embed/IM1ACP5g834",
       "https://www.youtube.com/embed/5rke1jP5rL4",
       "https://www.youtube.com/embed/OZlP7tgHnaA",
-      "https://www.instagram.com/reel/DUAuClWDiHG/embed",
     ],
   },
   {
